@@ -1,0 +1,25 @@
+/* #3F51B5:#3F51B5;
+#1A237E:#1A237E;
+white:white;
+#C5CAE9:#C5CAE9;
+72px:72px; */
+
+.container {
+  max-width: max-content !important;
+}
+
+.home-hd {
+  /* max-width: max-content !important; */
+  color: aliceblue;
+  /* background-image: url("/assets/images/header-bg.png"); */
+}
+
+#text {
+  z-index: 100;
+  position: absolute;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  left: 30%;
+  top: 0;
+}
