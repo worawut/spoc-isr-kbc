@@ -1,4 +1,17 @@
+@import "~bootstrap/dist/css/bootstrap.css";
 /* You can add global styles to this file, and also import other style files */
 body {
   background-color: #35505b;
+}
+
+.p-tree {
+  color: white !important;
+  background-color: #35505b !important;
+  border: 0px;
+  font-size: medium;
+  line-height: 30px;
+}
+
+.p-tree .p-tree-container .p-treenode .p-treenode-content .p-tree-toggler {
+  color: white !important;
 }

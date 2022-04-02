@@ -1,9 +1,210 @@
-<link
-  href="https://maxcdn.bootstrapcdn.com/font-awesom/4.3.0/css/font-awesome.min.css"
-  rel="stylesheet"
-/>
 <div class="container home-hd">
   <img src="/assets/images/header-bg.png" alt="Snow" style="width: 100%" />
-  <p id="text">RTAF Satellite Operation Support System</p>
+  <p id="text">{{ textHeader }}</p>
 </div>
-<div class="container"></div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <!-- tabs -->
+      <div class="tabbable tabs-left">
+        <ul class="nav nav-tabs">
+          <li>
+            <a href="#home" data-toggle="tab"
+              ><img src="assets/images/home-02.png"
+            /></a>
+          </li>
+          <li>
+            <a href="#shift" data-toggle="tab"
+              ><img src="assets/images/shift schedule-02.png"
+            /></a>
+          </li>
+          <li>
+            <a
+              href="https://docs.google.com/spreadsheets/d/1eLSrHE7UrZ8BpY_ebvCsKzo0PmAR3CV80FHJdn990is/edit#gid=379836416"
+              target="_blank"
+              ><img src="assets/images/image ap-02.png"
+            /></a>
+          </li>
+          <li>
+            <a
+              href="https://drive.google.com/drive/folders/1YObHXmisSZ3PMrwg6w4XcgNcUNkehOzJ"
+              target="_blank"
+              ><img src="assets/images/fp upload-02.png"
+            /></a>
+          </li>
+          <li>
+            <a href="#report" data-toggle="tab"
+              ><img src="assets/images/report-02.png"
+            /></a>
+          </li>
+          <li>
+            <a href="#manual" data-toggle="tab"
+              ><img src="assets/images/manual-02.png"
+            /></a>
+          </li>
+          <li>
+            <a href="#kbc" data-toggle="tab"
+              ><img src="assets/images/km-02.png"
+            /></a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane" id="home">
+            <div class="tab-body">
+              <div class="home-tab">
+                <div class="container">
+                  <div class="row">
+                    <div class="col" style="max-height: 360px">
+                      <iframe
+                        class="sat-pass"
+                        src="http://isr-space.rtaf.mi.th/sat-pass/satpass.xhtml"
+                      ></iframe>
+                    </div>
+                    <div class="col">
+                      <p-table
+                        [value]="passes"
+                        styleClass="p-datatable-gridlines"
+                        responsiveLayout="scroll"
+                      >
+                        <ng-template
+                          pTemplate="caption"
+                          style="text-align: center"
+                        >
+                          Today Passes
+                        </ng-template>
+                        <ng-template pTemplate="header">
+                          <tr>
+                            <th>Flight Pass</th>
+                            <th>AOS</th>
+                            <th>LOS</th>
+                            <th>Max EL</th>
+                          </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-pass>
+                          <tr>
+                            <td>{{ pass.pass }}</td>
+                            <td>{{ pass.aos }}</td>
+                            <td>{{ pass.los }}</td>
+                            <td>{{ pass.maxEl }}</td>
+                          </tr>
+                        </ng-template>
+                      </p-table>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <div class="container">
+                        <img
+                          src="/assets/images/f-04-04.png"
+                          alt="Snow"
+                          style="width: 100%"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="shift">
+            <div class="tab-body">
+              <h1>About Tab</h1>
+              <p>
+                because they are the most important for an encyclopedia to have,
+                as determined by the community of participating editors. They
+                may also be of interest to readers as an alternative to lists of
+                overview articles.
+              </p>
+            </div>
+          </div>
+
+          <div class="tab-pane" id="image">
+            <div class="tab-body"></div>
+          </div>
+
+          <div class="tab-pane" id="fp">
+            <div class="tab-body"></div>
+          </div>
+
+          <div class="tab-pane" id="report">
+            <div class="tab-body">
+              <div class="container">
+                <div class="row">
+                  <div class="col">
+                    <iframe
+                      width="100%"
+                      height="900px"
+                      frameBorder="0"
+                      src="http://192.168.100.200:8080/md-report/login.xhtml"
+                    ></iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane active" id="manual">
+            <div class="tab-body">
+              <mat-sidenav-container class="example-container">
+                <mat-sidenav
+                  #sidenav
+                  class="example-sidenav"
+                  mode="side"
+                  opened="true"
+                  (mouseenter)="mouseenter()"
+                  (mouseleave)="mouseleave()"
+                >
+                  <mat-nav-list>
+                    <mat-list-item
+                      (click)="showSubmenu = !showSubmenu"
+                      class="parent"
+                    >
+                      <span class="full-width" *ngIf="isExpanded || isShowing"
+                        >Operation Support Center</span
+                      >
+                    </mat-list-item>
+                    <div
+                      class="submenu"
+                      [ngClass]="{ expanded: showSubmenu }"
+                      *ngIf="isShowing || isExpanded"
+                    >
+                      <a mat-list-item href="#test1" data-toggle="tab"
+                        >Submenu Item 1</a
+                      >
+                      <a mat-list-item href="#test2" data-toggle="tab"
+                        >Submenu Item 2</a
+                      >
+                    </div>
+                  </mat-nav-list>
+                </mat-sidenav>
+                <mat-sidenav-content class="main-content">
+                  <div class="tab-content">
+                    <div class="tab-pane" id="test1">test 1</div>
+                    <div class="tab-pane" id="test2">test 2</div>
+                  </div>
+                </mat-sidenav-content>
+              </mat-sidenav-container>
+            </div>
+          </div>
+
+          <div class="tab-pane" id="kbc">
+            <div class="tab-body">
+              <div class="container">
+                <div class="row">
+                  <div class="col">
+                    <iframe
+                      width="100%"
+                      height="900px"
+                      [src]="iFrameUrl"
+                    ></iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /tabs -->
+      </div>
+    </div>
+  </div>
+</div>
